@@ -1,29 +1,29 @@
 ---
 - name: Check minecraft directory
   stat:
-    path: /opt/minecraft
+    path: "{{ mine_home }}"
   register: mine_dir
 
 - name: create folder for minecraft if it doesn't exist
   file:
-    path: /opt/minecraft
+    path: "{{ mine_home }}"
     state: directory
   when: not mine_dir.stat.exists
 
 - name: Dowload Foarge installer
   get_url:
-    url: https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar
-    dest: /opt/minecraft/
+    url: "{{ forge_server }}"
+    dest: "{{ mine_home }}"
 
 - name: Server Installation
   shell: java -jar forge-1.12.2-14.23.5.2860-installer.jar --installServer
   args:
-    chdir: /opt/minecraft/
+    chdir: "{{ mine_home }}"
 
 - name: Run minecraft server to generate files ans folders
-  shell: java -Xms1024M -Xmx2000M -jar /opt/minecraft/forge-1.12.2-14.23.5.2860.jar nogui
+  shell: "java -Xms1024M -Xmx2000M -jar {{ mine_home }}/forge-1.12.2-14.23.5.2860.jar nogui"
   args:
-    chdir: /opt/minecraft/
+    chdir: "{{ mine_home }}"
 
 - name: Accept licence
   replace:
@@ -34,14 +34,12 @@
 - name: Install modes
   get_url:
     url: "{{ item }}"
-    dest: /opt/minecraft/mods
+    dest: "{{ mine_home }}/mods"
   loop:
-    - https://media.forgecdn.net/files/3213/136/animania-1.12.2-base-2.0.3.28.jar
-    - https://media.forgecdn.net/files/3613/721/DynamicTrees-1.12.2-0.9.27.jar
-    - https://media.forgecdn.net/files/2661/859/CraftStudioAPI-universal-1.0.1.95-mc1.12-alpha.jar
-    - https://media.forgecdn.net/files/3213/139/animania-1.12.2-farm-1.0.2.28.jar
+    "{{ mods }}"
 
-- name: Run minecraft server
-  shell: java -Xms1024M -Xmx2000M -jar /opt/minecraft/forge-1.12.2-14.23.5.2860.jar nogui
-  args:
-    chdir: /opt/minecraft/
+# Command below will run server after installation but you won't be able to access server terminal
+# - name: Run minecraft server
+#   shell: "java -Xms1024M -Xmx2000M -jar {{ mine_home }}/forge-1.12.2-14.23.5.2860.jar nogui"
+#   args:
+#     chdir: "{{ mine_home }}"

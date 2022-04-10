@@ -1,0 +1,8 @@
+---
+mine_home: /opt/minecraft
+forge_server: https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar
+mods:
+  - https://media.forgecdn.net/files/3213/136/animania-1.12.2-base-2.0.3.28.jar
+  - https://media.forgecdn.net/files/3613/721/DynamicTrees-1.12.2-0.9.27.jar
+  - https://media.forgecdn.net/files/2661/859/CraftStudioAPI-universal-1.0.1.95-mc1.12-alpha.jar
+  - https://media.forgecdn.net/files/3213/139/animania-1.12.2-farm-1.0.2.28.jar
