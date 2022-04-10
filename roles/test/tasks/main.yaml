@@ -1,0 +1,4 @@
+---
+- name: Test connection
+  debug:
+    msg: "Ya lublu minecraft"

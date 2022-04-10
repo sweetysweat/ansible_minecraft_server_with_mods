@@ -1,0 +1,6 @@
+---
+webservers:
+  hosts:
+    minecraft:
+      ansible_host: 51.250.110.26
+      ansible_user: sweetysweat

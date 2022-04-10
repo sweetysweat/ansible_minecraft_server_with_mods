@@ -1,0 +1,16 @@
+---
+- name: Configure Minecraft server with mods
+  hosts: minecraft
+  gather_facts: true
+  become: true
+
+  roles:
+
+    - name: Update and upgrade apt packages
+      role: upd
+
+    - name: Install Java 8
+      role: java_8
+
+    - name: Configure minecraft server
+      role: mine_serv
