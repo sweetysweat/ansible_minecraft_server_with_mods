@@ -1,6 +1,7 @@
 ---
 mine_home: /opt/minecraft
 forge_server: https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar
+server_installer: server_installer.jar
 mods:
   - https://media.forgecdn.net/files/3213/136/animania-1.12.2-base-2.0.3.28.jar
   - https://media.forgecdn.net/files/3613/721/DynamicTrees-1.12.2-0.9.27.jar
