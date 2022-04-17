@@ -2,5 +2,5 @@
 webservers:
   hosts:
     minecraft:
-      ansible_host: 51.250.109.210
+      ansible_host: 10.129.0.20
       ansible_user: sweetysweat
